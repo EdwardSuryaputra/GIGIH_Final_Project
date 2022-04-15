@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 describe MenusController do
+
+  describe 'GET #show' do
+    it "assigns the requested menu to @menu" do
+      menu = create(:menu)
+      get :show, params: { id: menu }
+      expect(assigns(:menu)).to eq menu
+    end
+
+    it "renders the :show template" do
+      menu = create(:menu)
+      get :show, params: { id: menu }
+      expect(response).to render_template :show
+    end
+  end
+
+  
   describe 'GET #new' do
     it "assigns a new Menu to @menu" do
       get :new
@@ -10,6 +26,20 @@ describe MenusController do
     it "renders the :new template" do
       get :new
       expect(:response).to render_template :new
+    end
+  end
+
+  describe 'GET #edit' do
+    it "assigns the requested menu to @menu" do
+      menu = create(:menu)
+      get :edit, params: { id: menu }
+      expect(assigns(:menu)).to eq menu
+    end
+
+    it "renders the :edit template" do
+      menu = create(:menu)
+      get :edit, params: { id: menu }
+      expect(response).to render_template :edit
     end
   end
 
@@ -26,11 +56,5 @@ describe MenusController do
         expect(response).to redirect_to(menu_path(assigns[:menu]))
       end
     end
-
-    # context "with invalid attributes" do
-    #   it "does not save the new food in the database"
-    #   it "re-renders the :new template"
-    # end
-
   end
 end
