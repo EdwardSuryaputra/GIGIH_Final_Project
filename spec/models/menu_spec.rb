@@ -24,5 +24,14 @@ RSpec.describe Menu, type: :model do
         expect(menu.errors[:price]).to include("must be greater than 0.01")
   end
 
+  it "is invalid with a duplicate name" do
+    menu1 = FactoryBot.create(:menu, item_name: 'Nasi Uduk')
+    menu2 = FactoryBot.build(:menu, item_name: 'Nasi Uduk')
+
+    menu2.valid?
+
+    expect(menu2.errors[:item_name]).to include("has already been taken")
+  end
+
   
 end

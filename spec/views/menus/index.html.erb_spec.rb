@@ -9,7 +9,7 @@ RSpec.describe "menus/index", type: :view do
         description: "MyText"
       ),
       Menu.create!(
-        item_name: "Item Name",
+        item_name: "Nasi Uduk",
         price: 2.5,
         description: "MyText"
       )
