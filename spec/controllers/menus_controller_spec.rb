@@ -57,4 +57,28 @@ describe MenusController do
       end
     end
   end
+
+  describe 'PATCH #update' do
+    before :each do
+      @menu = create(:menu)
+    end
+
+    context "with valid attributes" do
+      it "locates the requested @menu" do
+        patch :update, params: { id: @menu, menu: attributes_for(:menu) }
+        expect(assigns(:menu)).to eq @menu
+      end
+
+      it "changes @menu's attributes" do
+        patch :update, params: { id: @menu, menu: attributes_for(:menu, item_name: 'Nasi Uduk') }
+        @menu.reload
+        expect(@menu.item_name).to eq('Nasi Uduk')
+      end
+
+      it "redirects to the menu" do
+        patch :update, params: { id: @menu, menu: attributes_for(:menu) }
+        expect(response).to redirect_to @menu
+      end
+    end
+  end
 end
