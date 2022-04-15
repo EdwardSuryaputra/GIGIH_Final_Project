@@ -15,9 +15,16 @@ describe MenusController do
 
   describe 'POST #create' do
     context "with valid attributes" do
-      it "saves the new food in the database"
-      it "redirects to foods#show"
-      it "price is higher than 0.01"
+      it "saves the new menu in the database" do
+        expect{
+          post :create, params: { menu: attributes_for(:menu) }
+        }.to change(Menu, :count).by(1)
+      end
+
+      it "redirects to menus#show" do
+        post :create, params: { menu: attributes_for(:menu) }
+        expect(response).to redirect_to(menu_path(assigns[:menu]))
+      end
       it "description length is no more than 150 characters"
       it "has at least one category"
     end
