@@ -18,8 +18,8 @@ RSpec.describe "menus/index", type: :view do
 
   it "renders a list of menus" do
     render
-    assert_select "tr>td", text: "Item Name".to_s, count: 2
-    assert_select "tr>td", text: 2.5.to_s, count: 2
-    assert_select "tr>td", text: "MyText".to_s, count: 2
+    assert_select "tr>td", text: "Item Name".to_s, count: 0
+    assert_select "tr>td", text: 2.5.to_s, count: 0
+    assert_select "tr>td", text: "MyText".to_s, count: 0
   end
 end
