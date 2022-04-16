@@ -41,6 +41,9 @@ RSpec.describe Menu, type: :model do
         expect(menu.errors[:description]).to include("is too long (maximum is 150 characters)")
   end
 
+  # describe 'validations' do
+  #   it { should validate_presence_of(:categories) }
+  # end
   
 
   
