@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe "categories/edit", type: :view do
   before(:each) do
     @category = assign(:category, Category.create!(
-      category_name: "MyString",
-      menu: 1
+      category_name: "MyString"
     ))
   end
 
@@ -14,8 +13,6 @@ RSpec.describe "categories/edit", type: :view do
     assert_select "form[action=?][method=?]", category_path(@category), "post" do
 
       assert_select "input[name=?]", "category[category_name]"
-
-      assert_select "input[name=?]", "category[menu_id]"
     end
   end
 end

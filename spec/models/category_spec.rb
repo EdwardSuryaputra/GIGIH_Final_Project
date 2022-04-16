@@ -1,7 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  describe 'associations' do
-    it { should belong_to(:menu).class_name('Menu') }
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

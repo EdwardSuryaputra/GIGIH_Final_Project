@@ -1,7 +1,5 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: %i[ show edit update destroy ]
-  skip_before_action :verify_authenticity_token
-
 
   # GET /menus or /menus.json
   def index

@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-  belongs_to :menu, class_name: "Menu",
-                          foreign_key: "menu_id"
+  has_many :categories_menus
+  has_many :menus, through :categories_menus
 end
