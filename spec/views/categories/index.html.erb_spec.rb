@@ -5,11 +5,11 @@ RSpec.describe "categories/index", type: :view do
     assign(:categories, [
       Category.create!(
         category_name: "Category Name",
-        menu: nil
+        menu: 1
       ),
       Category.create!(
         category_name: "Category Name",
-        menu: nil
+        menu: 2
       )
     ])
   end

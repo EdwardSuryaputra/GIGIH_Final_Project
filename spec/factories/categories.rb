@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :category do
-    category_name { "MyString" }
-    menu { nil }
+    association :menu
+    category_name { "Indonesian" }
+    menu { 1 }
   end
 end

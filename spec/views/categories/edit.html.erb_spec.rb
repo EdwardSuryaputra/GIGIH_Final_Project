@@ -4,7 +4,7 @@ RSpec.describe "categories/edit", type: :view do
   before(:each) do
     @category = assign(:category, Category.create!(
       category_name: "MyString",
-      menu: nil
+      menu: 1
     ))
   end
 
