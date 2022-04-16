@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_menu, only: %i[ show edit update destroy ]
 
   # GET /menus or /menus.json
@@ -65,6 +66,6 @@ class MenusController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def menu_params
-      params.require(:menu).permit(:item_name, :price, :description)
+      params.require(:menu).permit(:item_name, :price, :description, :category_ids=>[])
     end
 end

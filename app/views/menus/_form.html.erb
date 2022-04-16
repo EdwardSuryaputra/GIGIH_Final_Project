@@ -27,6 +27,11 @@
   </div>
 
   <div>
+    <%= form.label :categories %>
+    <%= form.collection_select :category_ids, Category.order(:category_name), :id, :category_name, {}, {class: 'select2', multiple: true} %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
