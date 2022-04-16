@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is invalid with a duplicate name" do
+    category1 = FactoryBot.create(:category, category_name: 'Eastern')
+    category2 = FactoryBot.build(:category, category_name: 'Eastern')
+
+    category2.valid?
+
+    expect(category2.errors[:category_name]).to include("has already been taken")
+  end
 end

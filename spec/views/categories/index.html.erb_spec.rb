@@ -7,7 +7,7 @@ RSpec.describe "categories/index", type: :view do
         category_name: "Category Name"
       ),
       Category.create!(
-        category_name: "Category Name"
+        category_name: "Name"
       )
     ])
   end
