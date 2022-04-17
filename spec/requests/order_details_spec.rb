@@ -12,10 +12,10 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/menus", type: :request do
+RSpec.describe "/order_details", type: :request do
   
   # This should return the minimal set of attributes required to create a valid
-  # Menu. As you add validations to Menu, be sure to
+  # OrderDetail. As you add validations to OrderDetail, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -27,58 +27,58 @@ RSpec.describe "/menus", type: :request do
 
   describe "GET /index" do
     it "renders a successful response" do
-      Menu.create! valid_attributes
-      get menus_url
+      OrderDetail.create! valid_attributes
+      get order_details_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
     it "renders a successful response" do
-      menu = Menu.create! valid_attributes
-      get menu_url(menu)
+      order_detail = OrderDetail.create! valid_attributes
+      get order_detail_url(order_detail)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_menu_url
+      get new_order_detail_url
       expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
     it "renders a successful response" do
-      menu = Menu.create! valid_attributes
-      get edit_menu_url(menu)
+      order_detail = OrderDetail.create! valid_attributes
+      get edit_order_detail_url(order_detail)
       expect(response).to be_successful
     end
   end
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Menu" do
+      it "creates a new OrderDetail" do
         expect {
-          post menus_url, params: { menu: valid_attributes }
-        }.to change(Menu, :count).by(1)
+          post order_details_url, params: { order_detail: valid_attributes }
+        }.to change(OrderDetail, :count).by(1)
       end
 
-      it "redirects to the created menu" do
-        post menus_url, params: { menu: valid_attributes }
-        expect(response).to redirect_to(menu_url(Menu.last))
+      it "redirects to the created order_detail" do
+        post order_details_url, params: { order_detail: valid_attributes }
+        expect(response).to redirect_to(order_detail_url(OrderDetail.last))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Menu" do
+      it "does not create a new OrderDetail" do
         expect {
-          post menus_url, params: { menu: invalid_attributes }
-        }.to change(Menu, :count).by(0)
+          post order_details_url, params: { order_detail: invalid_attributes }
+        }.to change(OrderDetail, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
-        post menus_url, params: { menu: invalid_attributes }
+        post order_details_url, params: { order_detail: invalid_attributes }
         expect(response).to be_successful
       end
     end
@@ -90,42 +90,42 @@ RSpec.describe "/menus", type: :request do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested menu" do
-        menu = Menu.create! valid_attributes
-        patch menu_url(menu), params: { menu: new_attributes }
-        menu.reload
+      it "updates the requested order_detail" do
+        order_detail = OrderDetail.create! valid_attributes
+        patch order_detail_url(order_detail), params: { order_detail: new_attributes }
+        order_detail.reload
         skip("Add assertions for updated state")
       end
 
-      it "redirects to the menu" do
-        menu = Menu.create! valid_attributes
-        patch menu_url(menu), params: { menu: new_attributes }
-        menu.reload
-        expect(response).to redirect_to(menu_url(menu))
+      it "redirects to the order_detail" do
+        order_detail = OrderDetail.create! valid_attributes
+        patch order_detail_url(order_detail), params: { order_detail: new_attributes }
+        order_detail.reload
+        expect(response).to redirect_to(order_detail_url(order_detail))
       end
     end
 
     context "with invalid parameters" do
       it "renders a successful response (i.e. to display the 'edit' template)" do
-        menu = Menu.create! valid_attributes
-        patch menu_url(menu), params: { menu: invalid_attributes }
+        order_detail = OrderDetail.create! valid_attributes
+        patch order_detail_url(order_detail), params: { order_detail: invalid_attributes }
         expect(response).to be_successful
       end
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested menu" do
-      menu = Menu.create! valid_attributes
+    it "destroys the requested order_detail" do
+      order_detail = OrderDetail.create! valid_attributes
       expect {
-        delete menu_url(menu)
-      }.to change(Menu, :count).by(-1)
+        delete order_detail_url(order_detail)
+      }.to change(OrderDetail, :count).by(-1)
     end
 
-    it "redirects to the menus list" do
-      menu = Menu.create! valid_attributes
-      delete menu_url(menu)
-      expect(response).to redirect_to(menus_url)
+    it "redirects to the order_details list" do
+      order_detail = OrderDetail.create! valid_attributes
+      delete order_detail_url(order_detail)
+      expect(response).to redirect_to(order_details_url)
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_17_004638) do
+ActiveRecord::Schema.define(version: 2022_04_17_033022) do
 
   create_table "categories", force: :cascade do |t|
     t.string "category_name"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 2022_04_17_004638) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.integer "menu_id", null: false
+    t.integer "order_id", null: false
+    t.float "unit_price"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["menu_id"], name: "index_order_details_on_menu_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.date "date"
     t.float "total"
@@ -50,5 +61,7 @@ ActiveRecord::Schema.define(version: 2022_04_17_004638) do
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
+  add_foreign_key "order_details", "menus"
+  add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "customers"
 end
