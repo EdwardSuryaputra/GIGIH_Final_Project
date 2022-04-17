@@ -5,7 +5,6 @@ RSpec.describe "order_details/new", type: :view do
     assign(:order_detail, OrderDetail.new(
       menu: nil,
       order: nil,
-      unit_priceces: "MyString",
       unit_price: 1.5,
       quantity: 1
     ))
@@ -19,8 +18,6 @@ RSpec.describe "order_details/new", type: :view do
       assert_select "input[name=?]", "order_detail[menu_id]"
 
       assert_select "input[name=?]", "order_detail[order_id]"
-
-      assert_select "input[name=?]", "order_detail[unit_priceces]"
 
       assert_select "input[name=?]", "order_detail[unit_price]"
 
