@@ -1,8 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :customer
-  has_many :order_details
-  accepts_nested_attributes_for :order_details, :reject_if => lambda { |a| a[:handtool].blank? }, :allow_destroy => true
-
+  has_many :order_details, dependent: :destroy
+  accepts_nested_attributes_for :order_details, reject_if: :all_blank
 
   before_save :set_total
 
