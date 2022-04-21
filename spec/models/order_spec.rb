@@ -7,6 +7,12 @@ RSpec.describe Order, type: :model do
       expect(order.errors[:customer_id]).to include("can't be blank")
   end
 
+  it 'is invalid without a date' do
+      order = FactoryBot.build(:order, date: nil ,customer_id: 1)
+      order.valid?
+      expect(order.errors[:date]).to include("can't be blank")
+  end
+
   it 'is invalid with a status other than new paid cancelled' do
       order = FactoryBot.build(:order, customer_id: 1, status: "newww")
       order.valid?

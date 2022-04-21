@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token
+
 
   # GET /orders or /orders.json
   def index
@@ -13,14 +15,18 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @menus = Menu.all
+    @order.order_details.new
   end
 
   # GET /orders/1/edit
   def edit
+    @menus = Menu.all
   end
 
   # POST /orders or /orders.json
   def create
+    @menus = Menu.all
     @order = Order.new(order_params)
 
     respond_to do |format|
@@ -49,8 +55,9 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
+    @order.order_details.clear 
     @order.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
       format.json { head :no_content }
@@ -65,6 +72,6 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:date, :total, :status, :customer_id)
+      params.require(:order).permit(:date, :status, :customer_id, order_details_attributes: [:menu_id, :unit_price, :quantity])
     end
 end

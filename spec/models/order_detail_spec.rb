@@ -7,12 +7,6 @@ RSpec.describe OrderDetail, type: :model do
       order.valid?
       expect(order.errors[:menu_id]).to include("can't be blank")
     end
-  
-    it 'is invalid without an order id' do
-      order = FactoryBot.build(:order_detail, menu_id: 1)
-      order.valid?
-      expect(order.errors[:order_id]).to include("can't be blank")
-    end
 
     it 'is invalid without a unit price' do
       order = FactoryBot.build(:order_detail, menu_id: 1, order_id: 1, unit_price: nil)
