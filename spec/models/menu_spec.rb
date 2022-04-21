@@ -4,7 +4,8 @@ require 'factory_bot'
 RSpec.describe Menu, type: :model do
   describe 'invalid or valid if attribute blank' do
     it 'is valid with a name and a price' do
-      expect(FactoryBot.build(:menu, description: nil)).to be_valid
+      category = FactoryBot.create(:category, id: 1)
+      expect(FactoryBot.build(:menu, description: nil, category_ids: 1)).to be_valid
     end
   
     it 'is invalid without a name' do
@@ -27,8 +28,9 @@ RSpec.describe Menu, type: :model do
   end
 
   it "is invalid with a duplicate name" do
-    menu1 = FactoryBot.create(:menu, item_name: 'Nasi Uduk')
-    menu2 = FactoryBot.build(:menu, item_name: 'Nasi Uduk')
+    category = FactoryBot.create(:category, id: 1)
+    menu1 = FactoryBot.create(:menu, item_name: 'Nasi Uduk', category_ids: 1)
+    menu2 = FactoryBot.build(:menu, item_name: 'Nasi Uduk', category_ids: 1)
 
     menu2.valid?
 
@@ -41,9 +43,9 @@ RSpec.describe Menu, type: :model do
         expect(menu.errors[:description]).to include("is too long (maximum is 150 characters)")
   end
 
-  # describe 'validations' do
-  #   it { should validate_presence_of(:categories) }
-  # end
+  describe 'validations' do
+    it { should validate_presence_of(:categories) }
+  end
 
   
 end
