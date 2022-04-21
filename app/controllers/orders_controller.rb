@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @items =  @order.order_details
   end
 
   # GET /orders/new
@@ -55,7 +56,6 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
-    @order.order_details.clear 
     @order.destroy
     
     respond_to do |format|

@@ -1,6 +1,44 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @order %>
+<div>
+  <p>
+    <strong>Date:</strong>
+    <%= @order.date %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= @order.status %>
+  </p>
+
+  <p>
+    <strong>Customer:</strong>
+    <%= @order.customer.email %>
+  </p>
+
+  <p>
+    <strong>Total:</strong>
+    <%= @order.total %>
+  </p>
+
+</div>
+
+<table id="menus">
+  <tr>
+    <th>Item name</th>
+    <th>Price</th>
+    <th>Quantity</th>
+  </tr>
+  <% @items.each do |item| %>
+    <% if item.quantity != 0 %>
+    <tr>
+      <td><%= item.menu.item_name %></td>
+      <td><%= item.unit_price %></td>
+      <td><%= item.quantity %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>
 
 <div>
   <%= link_to "Edit this order", edit_order_path(@order) %> |

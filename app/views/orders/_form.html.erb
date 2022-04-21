@@ -35,7 +35,6 @@
   <% menus.each do |menu| %>
     <tr>
       <td><%= menu.item_name %></td>
-      <td><%= menu.price %></td>
       <td> <%= link_to "Show", menu %></td>
       <td>
         <%= form.fields_for :order_details do |f| %>
