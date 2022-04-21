@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="form-group">
     <%= form.label :date, style: "display: block" %>
     <%= form.date_field :date %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :status, style: "display: block" %>
     <%= form.select :status, options_for_select(["NEW", "PAID", "CANCELLED"]), :class => 'genForm_dropBox' %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= form.label :Customer, style: "display: block" %>
     <%= form.collection_select :customer_id, Customer.order(:email), :id, :email, {}, {class: 'select2'} %>
   </div>
@@ -29,7 +29,6 @@
   <table id="menus">
   <tr>
     <th>Item name</th>
-    <th>Price</th>
     <th></th>
   </tr>
   <% menus.each do |menu| %>
@@ -38,9 +37,10 @@
       <td> <%= link_to "Show", menu %></td>
       <td>
         <%= form.fields_for :order_details do |f| %>
+          <%= f.hidden_field :id %>
           <%= f.hidden_field :menu_id, :value => menu.id %>
           <%= f.hidden_field :unit_price, :value => menu.price %>
-          <%= f.number_field :quantity,  :min => 0 %> 
+          <%= f.number_field :quantity, :min => 0 %> 
         <% end %>
       </td>
     </tr>

@@ -3,15 +3,27 @@
 <h1>Menus</h1>
 <p><%= link_to "Categories", categories_path %></p> 
 
-
-<div id="menus">
-  <% @menus.each do |menu| %>
-    <%= render menu %>
-    <%= render menu.categories %>
-    <p>
-      <%= link_to "Show this menu", menu %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Category</th>
+      </tr>
+    </thead>
+    <tbody id="menus">
+      
+      <% @menus.each do |menu| %>
+        <tr>
+          <td><%= menu.item_name %></td>
+          <td><%= menu.price %></td>
+          <td><%= menu.description %></td>
+          <td><%= render menu.categories %></td>
+          <td><%= link_to "Show", menu %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
 <%= link_to "New menu", new_menu_path %>

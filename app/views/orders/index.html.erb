@@ -1,16 +1,33 @@
-<p style="color: green"><%= notice %></p>
+<body>
+  <p style="color: green"><%= notice %></p>
+  
+  <h1>Orders</h1>
+  <p><%= link_to "Menus", menus_path %></p> 
+  <p><%= link_to "Customers", customers_path %></p>
 
-<h1>Orders</h1>
-<p><%= link_to "Menus", menus_path %></p> 
-<p><%= link_to "Customers", customers_path %></p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Email</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody id="orders">
+      
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.date %></td>
+          <td><%= order.status %></td>
+          <td><%= order.customer.email %></td>
+          <td><%= order.total %></td>
+          <td><%= link_to "Show this order", order %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<div id="orders">
-  <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New order", new_order_path %>
+  
+  <%= link_to "New order", new_order_path %>
+</body>
