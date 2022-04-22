@@ -26,9 +26,11 @@
     <%= form.collection_select :customer_id, Customer.order(:email), :id, :email, {}, {class: 'select2'} %>
   </div>
 
+  <strong>Both item and price is in the same order</strong>
+
   <table class="table" id="menus">
   <tr>
-    <th>Item name</th>
+    <th>Item</th>
     <th>Price</th>
     <th>Quantity</th>
   </tr>
