@@ -26,27 +26,19 @@
     <%= form.collection_select :customer_id, Customer.order(:email), :id, :email, {}, {class: 'select2'} %>
   </div>
 
-  <table id="menus">
+  <table class="table" id="menus">
   <tr>
     <th>Item name</th>
-    <th></th>
+    <th>Quantity</th>
   </tr>
-  <% menus.each do |menu| %>
-    <tr>
-      <td><%= menu.item_name %></td>
-      <td> <%= link_to "Show", menu %></td>
-      <td>
+  <tbody class="order_details">
         <%= form.fields_for :order_details do |f| %>
-          <%= f.hidden_field :id %>
-          <%= f.hidden_field :menu_id, :value => menu.id %>
-          <%= f.hidden_field :unit_price, :value => menu.price %>
-          <%= f.number_field :quantity, :min => 0 %> 
+          <%= render 'order_detail_fields', f: f %>
         <% end %>
-      </td>
-    </tr>
-  <% end %>
+  </tbody>
 </table>
   <div>
+    <%= link_to_add_association 'Add item', form, :order_details, data: {association_insertion_node: '.order_details', association_insertion_method: :append} %>
     <%= form.submit %>
   </div>
 <% end %>

@@ -7,6 +7,7 @@ class OrderDetail < ApplicationRecord
   validates :menu_id, presence: true
   validates :unit_price, presence: true
   validates :quantity, presence: true
+  
 
   private 
   def set_unit_price
