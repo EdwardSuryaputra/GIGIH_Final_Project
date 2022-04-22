@@ -1,1 +1,27 @@
-<h1>Reports</h1>
+<body>  
+  <h1>Daily Report</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Email</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody id="orders">
+      
+      <% @report.each do |report| %>
+        <tr>
+          <td><%= report.date %></td>
+          <td><%= report.status %></td>
+          <td><%= report.customer.email %></td>
+          <td><%= report.total %></td>
+          <td><%= link_to "Show this order", report %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p>Total revenue: Rp <%= @revenue %></p>
+</body>
