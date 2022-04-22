@@ -23,3 +23,17 @@ SQLite would work in development but we don't recommend running it in production
 ## Help
 
 If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+
+## Run Unit Testing
+Run bundle exec rspec -fd should run all test
+
+## Additional Gem/Library
+gem cocoon (https://github.com/nathanvda/cocoon)
+  for handling form (nested-attributes)
+gem shoulad-matchers (https://github.com/thoughtbot/shoulda-matchers)
+  for handling associations test
+
+## Schema Design
+https://drive.google.com/file/d/1xahk54yo_utpSx2nUVzTgcHdatjHzLg7/view?usp=sharing
+
+

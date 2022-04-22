@@ -88,3 +88,5 @@ group :test do
 end
 
 gem "cocoon"
+gem 'filterrific'
+

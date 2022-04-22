@@ -3,9 +3,9 @@
     <%= f.collection_select :menu_id, Menu.order(:item_name), :id, :item_name, {} %>
   </td>
   <%= f.hidden_field :unit_price, :value => @price %> 
-<!--   <td>
+  <td>
   <%= f.collection_select :unit_price, Menu.order(:price), :price, :price, {} %>
-  </td> -->
+  </td>
   <td>
   <%= f.number_field :quantity, :min => 0 %> 
   </td>
