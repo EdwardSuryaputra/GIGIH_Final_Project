@@ -30,7 +30,8 @@ Run bundle exec rspec -fd should run all test
 ## Additional Gem/Library
 gem cocoon (https://github.com/nathanvda/cocoon)
   for handling form (nested-attributes)
-gem shoulad-matchers (https://github.com/thoughtbot/shoulda-matchers)
+  
+gem shoulda-matchers (https://github.com/thoughtbot/shoulda-matchers)
   for handling associations test
 
 ## Schema Design
