@@ -34,5 +34,5 @@ gem shoulad-matchers (https://github.com/thoughtbot/shoulda-matchers)
   for handling associations test
 
 ## Schema Design
-![alt text](https://drive.google.com/file/d/1xahk54yo_utpSx2nUVzTgcHdatjHzLg7/view)
+![alt text](https://github.com/EdwardSuryaputra/GIGIH_Final_Project/blob/main/Schema%20Design.png)
 
