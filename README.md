@@ -1,12 +1,15 @@
-# Rails on Replit
+# Food Catering App
 
-This is a template to get you started with Rails on Replit. It's ready to go so you can just hit run and start coding!
+This web app is made using ruby on rails, and this app is made for food catering business owner. In this app, owners have the ability to create, read, update, and delete:
+- Items
+- Customers data
+- Orders
 
-This template was generated using `rails new` (after you install the `rails` gem from the packager sidebar) so you can always do that if you prefer to set it up from scratch. The only had two make config changes we had to make to run it on Replit:
+With additional features of:
+- Able to see daily report of orders with it's revenue
 
-- bind the app on `0.0.0.0` instead of `localhost` (see `.replit`).
-- allow `*.repl.co` hosts (see `config/environments/development.rb`).
-- allow the app to be iframed on `replit.com` (see `config/application.rb`).
+## Schema Design
+![alt text](https://github.com/EdwardSuryaputra/GIGIH_Final_Project/blob/main/Schema%20Design.png)
 
 ## Running the app
 
@@ -18,14 +21,10 @@ Start every command with `bundle exec` so that it runs in the context of the ins
 
 ## Database
 
-SQLite would work in development but we don't recommend running it in production. Instead look into using the built-in [Replit database](http://docs.replit.com/misc/database). Otherwise you are welcome to connect databases from your favorite provider. 
-
-## Help
-
-If you need help you might be able to find an answer on our [docs](https://docs.replit.com) page. Alternatively you can [ask in the community](https://replit.com/talk/ask). Feel free to report bugs [here](https://replit.com/bugs) and give us feedback [here](https://Replit/feedback).
+The database I used for this app is SQLite
 
 ## Run Unit Testing
-Run bundle exec rspec -fd should run all test.
+To make the unit test for the features of this app, i used rspec, so if you want to run the test please run bundle exec rspec -fd to run all test.
 
 ## Additional Gem/Library
 gem cocoon (https://github.com/nathanvda/cocoon)
@@ -33,7 +32,4 @@ gem cocoon (https://github.com/nathanvda/cocoon)
   
 gem shoulda-matchers (https://github.com/thoughtbot/shoulda-matchers)
   for handling associations test.
-
-## Schema Design
-![alt text](https://github.com/EdwardSuryaputra/GIGIH_Final_Project/blob/main/Schema%20Design.png)
 
