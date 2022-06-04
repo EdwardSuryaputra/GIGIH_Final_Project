@@ -1,6 +1,6 @@
 # Food Catering App
 
-This web app is made using ruby on rails, and this app is made for food catering business owner. In this app, owners have the ability to create, read, update, and delete:
+This is a backend focused web app project that's made using ruby on rails, and this app is made for food catering business owner. In this app, owners have the ability to create, read, update, and delete:
 - Items
 - Customers data
 - Orders
