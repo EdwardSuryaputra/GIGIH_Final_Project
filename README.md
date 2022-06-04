@@ -13,7 +13,13 @@ With additional features of:
 
 ## Running the app
 
-Simple hit run! You can edit the run command from the `.replit` file.
+You can simply access the app using this link https://food-catering-app.herokuapp.com/
+
+/menus --> to access menu items
+/categories --> to access menu categories
+/customers --> to access customers data
+/orders --> to access orders
+/report --> to access daily report
 
 ## Running commands
 
@@ -21,7 +27,7 @@ Start every command with `bundle exec` so that it runs in the context of the ins
 
 ## Database
 
-The database I used for this app is SQLite
+The database I used for this app is a relational database
 
 ## Run Unit Testing
 To make the unit test for the features of this app, i used rspec, so if you want to run the test please run bundle exec rspec -fd to run all test.
