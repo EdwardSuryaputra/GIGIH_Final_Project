@@ -15,11 +15,11 @@ With additional features of:
 
 You can simply access the app using this link https://food-catering-app.herokuapp.com/
 
-/menus --> to access menu items
-/categories --> to access menu categories
-/customers --> to access customers data
-/orders --> to access orders
-/report --> to access daily report
+- /menus --> to access menu items
+- /categories --> to access menu categories
+- /customers --> to access customers data
+- /orders --> to access orders
+- /report --> to access daily report
 
 ## Running commands
 
